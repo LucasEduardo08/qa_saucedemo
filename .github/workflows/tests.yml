@@ -10,11 +10,11 @@ on:
 
 jobs:
   tests: 
-    runs-on: ubuntu-lastest
+    runs-on: ubuntu-latest
 
     steps:
       - name: Checkout repository
-      - uses: actions/checkout@v6
+        uses: actions/checkout@v4
 
       - name: Build Docker image
         working-directory: ./saucedemo
