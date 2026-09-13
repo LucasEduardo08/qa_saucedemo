@@ -1,10 +1,14 @@
-# QA SauceDemo
+# QA SauceDemo - SauceDemo
 
-Projeto de automação de testes em Quality Assurance (QA) para avaliação do site Sauce Demo.
+Projeto de automação de testes funcionais End-to-End (E2E) desenvolvido
+para validação de uma aplicação de e-commerce.
 
-O objetivo do projeto é validar as principais funcionalidades de um e-commerce, simulando ações realizadas por usuários e verificando se o sistema atende aos comportamentos esperados.
+O projeto tem como objetivo aplicar práticas de Quality Assurance (QA),
+automação de testes e integração contínua, simulando cenários de uso
+realizados por usuários em uma aplicação web.
 
-Os testes foram realizados utilizando o site [Sauce Demo](https://sauce-demo.myshopify.com/) como aplicação de estudo.
+A aplicação utilizada para os testes é o [Sauce Demo](https://sauce-demo.myshopify.com/),
+utilizado como ambiente de estudo para automação de testes.
 
 ## Tecnologias utilizadas
 
@@ -12,19 +16,24 @@ Os testes foram realizados utilizando o site [Sauce Demo](https://sauce-demo.mys
 - Pytest
 - Playwright
 - Poetry
+- Docker
+- GitHub Actions
 
-## Tipo de testes
+## Testes automatizados
 
-O projeto é composto por testes funcionais End-to-End (E2E).
+Os testes são realizados utilizando o navegador e simulam interações
+de usuários com a aplicação.
 
-Os testes simulam a interação do usuário com a aplicação através do navegador, validando funcionalidades como:
+Os principais cenários contemplados são:
 
 - Navegação entre páginas;
 - Visualização de produtos;
 - Seleção de produtos;
 - Adição de produtos ao carrinho;
-- Funcionalidades do carrinho;
-- Processo de checkout.
+- Remoção de produtos do carrinho;
+- Validação do carrinho;
+- Processo de checkout;
+- Navegação entre diferentes páginas da aplicação.
 
 ## Estrutura do projeto
 
@@ -36,12 +45,21 @@ qa_saucedemo/
 │   │   └── saucedemo/
 │   │       └── pages/
 │   │
-│   └── tests/
-│       ├── checkout/
-│       ├── navigate/
-│       └── products/
+│   ├── tests/
+│   │   ├── checkout/
+│   │   ├── navigate/
+│   │   └── products/
+│   │
+│   ├── Dockerfile
+│   ├── pyproject.toml
+│   ├── poetry.lock
+│   └── pytest.ini
 │
-├── pyproject.toml
-├── poetry.lock
-├── pytest.ini
+├── .github/
+│   └── workflows/
+│       └── tests.yml
+│
+├── reports/
+│
+├── .gitignore
 └── README.md
