@@ -20,4 +20,4 @@ RUN poetry install --no-root
 COPY . .
 
 # Comando padrão do container, comando: poetry run pytest
-CMD ["poetry", "run", "pytest"]
+CMD ["poetry", "run", "pytest", "--html=reports/report.html", "--self-contained-html"]

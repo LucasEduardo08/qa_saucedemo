@@ -21,4 +21,16 @@ jobs:
         run: docker build -t qa-saucedemo .
 
       - name: Run tests
-        run: docker run --rm --ipc=host qa-saucedemo
+        run: |
+          mkdir -p reports
+          docker run --rm \
+            --ipc=host \
+            -v "${{ github.workspace }}/reports:/app/reports" \
+            qa-saucedemo
+
+      - name: Upload test report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: test-report
+          path: reports/report.html
