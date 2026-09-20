@@ -5,7 +5,7 @@ import pytest
 def test_atualizar_pagina_carrinho(
     home_page,
     product_page,
-    cart_page,
+    checkout_page,
     page
 ):
 
@@ -17,10 +17,12 @@ def test_atualizar_pagina_carrinho(
 
     product_page.add_product_to_cart()
 
+    product_page.select_checkout()
+
     # Atualizar página
     page.reload()
 
     # Produto deve continuar no carrinho
-    assert cart_page.is_product_in_cart(PRODUCT_NAME), (
+    assert checkout_page.is_product_in_cart(PRODUCT_NAME), (
         "Product disappeared after page reload"
     )

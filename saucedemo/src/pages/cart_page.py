@@ -12,11 +12,6 @@ class CartPage:
             exact=True
         ).is_visible()
 
-    def get_product_quantity(self):
-        return self.page.locator(
-            "input[type='number']"
-        ).input_value()
-
     def remove_product(self, product_name):
         product = self.page.locator(
             ".cart-item",
@@ -27,9 +22,6 @@ class CartPage:
             "a",
             has_text="Remove"
         ).click()
-
-    def proceed_to_checkout(self):
-        self.checkout_button.click()
 
     def is_cart_empty(self):
         return self.page.get_by_text(
@@ -88,6 +80,3 @@ class CartPage:
             .replace("£", "")
             .strip()
         )
-
-    def proceed_to_checkout(self):
-        self.checkout_button.click()

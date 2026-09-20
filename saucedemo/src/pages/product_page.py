@@ -5,6 +5,7 @@ class ProductPage:
         self.price_product = page.locator("span[class='product-price']")
         self.add_to_cart = page.locator("input[value='Add to Cart']")
         self.home = page.locator("nav")
+        self.checkout = page.locator("a[class='checkout']")
 
     def is_product_selected(self, product_name) -> bool:
         """
@@ -29,3 +30,6 @@ class ProductPage:
             "tr",
             has_text=product_name
         ).get_by_text("Remove").click()
+
+    def select_checkout(self):
+        self.checkout.click()
